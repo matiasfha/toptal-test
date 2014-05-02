@@ -1,9 +1,8 @@
-@mixin open-sans($weight, $size, $color) {
+@mixin open-sans($weight, $size, $color,$align) {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     font-weight: $weight;
     font-size: $size;
-    text-align: center;
-    text-transform: uppercase;
+    text-align: $align;
     color: $color;
 }
 
