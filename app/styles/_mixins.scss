@@ -1,7 +1,11 @@
 @mixin open-sans($weight, $size, $color,$align) {
-    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-    font-weight: $weight;
-    font-size: $size;
+	font:{
+		// family:'Open Sans', Helvetica, Arial, sans-serif;
+		// family:"Helvetica Neue","Helvetica","Arial","sans-serif";
+		family:'Roboto',Helvetica,Arial,sans-serif;
+		size: $size;
+		weight: $weight;
+	}
     text-align: $align;
     color: $color;
 }

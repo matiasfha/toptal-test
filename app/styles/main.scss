@@ -7,38 +7,64 @@
 @include gridle_generate_classes ( );
 @include gridle_register_state( "tablet" , 401px , 730px );
  
+
+body{
+    @include open-sans(300,14px,black,center);
+    margin: 0;
+} 
+
 .button{
     height:auto;
     padding:5px 10px 5px 10px;
-    @include open-sans(300, 12px, black, center);   
+    @include open-sans(700, 12px, black, center);   
     cursor:pointer;
-    background-color:#ddd;
+    background-color:#fff;
     position:relative;
     border-radius:2px;
     &.big{
         padding: 15px 25px 15px 25px;
-        font-weight:600 !important;
-        font-size:13px !important;
+        font:{
+            weight:600 !important;
+            size:13px !important;
+        }
+        
     }
     &.round{
         border-radius:22px;
          
+    }
+    &:hover,&:active{
+        background-color: darken(#fff, 30%);
     }
  
 }
  
 .button-gray{
     @extend .button;
-    @include open-sans(300, 12px, white, center);   
-    background-color: rgb(107,107,107);;
+    @include open-sans(700, 12px, white, center);   
+    background-color: rgb(107,107,107);
+    &:hover,&:active{
+        background-color: darken(rgb(107,107,107), 10%);
+    }
 }
  
 .button-inverted{
     @extend .button;
-    @include open-sans(300, 12px, black, center);   
-    background-color:#fff;
+    @include open-sans(700, 12px, white, center);   
+    background-color:#000;
+    &:hover,&:active{
+        background-color: lighten(#000, 30%);
+    }
 }
  
+.button-disabled{
+    @extend .button;
+    @include open-sans(700, 12px, white, center);   
+    background-color: rgb(169,169,169);
+    &:hover,&:active{
+        background-color: darken(rgb(169,169,169), 10%);
+    }
+}
  
 .bold{
     font-weight:bold;
@@ -47,70 +73,108 @@
 .italic{
     font-style:italic;
 }
+  
  
- 
- 
-p{
-    &.small{
-        @include open-sans(400, 10px, white, center);
-    }
-    &.normal{
-        @include open-sans(300, 14px, white, center);
-    }
-    &.big{
-        @include open-sans(400, 25px, white, center);
-    }
+.small{
+    @include open-sans(400, 10px, white, center);
 }
- 
-body {
-    margin: 0;
+.normal{
+    @include open-sans(400, 14px, white, center);
 }
- 
-header{
-    padding-top:20px;
-    background:#000;
-    height:85px;
-    position:relative;
-    top:0;
-    left:0;
+.big{
+    @include open-sans(300, 25px, white, center);
+}
+
+input{
+    box-sizing: border-box;
+    border:1px rgb(172,172,172) solid;
+    line-height: 15px;
     width:100%;
-    @include open-sans(300, 14px, white, center);
-    .small{
-        text-align:right;
-    }
-    #logo{
-        margin-top:-6px;
-    }
-    #sub{
-        margin-top:10px;
-        margin-bottom:10px;
-     
-        #menu{
-            text-align:left;    
-            span.normal{
-                cursor:pointer;
-                margin-left:5px;
-            }
-        }
- 
+    @include open-sans(700,14px,#626262,left);
+    text-indent:10px;
+    padding:0;
+    margin:0;
+    vertical-align: baseline;
+    outline: none;
+    background: white url("/images/tick-small.png") no-repeat scroll 98% 45%;
+    &:focus{
+        outline: 0;
+        border:1px rgb(172,172,172) solid;
     }
 }
  
-//main
 .container{
     width:960px;
     margin:0 auto;
     padding:0;
 }
  
+header{
+    @include gridle_container(); 
+    @include transition(0.25s);
+    padding-top:20px;
+    background:#000;
+    height:105px;
+    position:relative;
+    top:0;
+    left:0;
+    width:100%;
+    @include open-sans(300, 14px, white, center);
+
+    .logo-container{
+        @include gridle(4); 
+        img{
+            margin-top:-6px;
+        }
+    }
+
+    .buttons-container{
+        @include gridle(5);
+        @include gridle_push(3);
+        .button-gray{
+            margin-left:15px;
+        }
+        .small{
+            text-align:right;
+        }
+    }
+    
+    #sub{
+        margin-top:10px;
+        margin-bottom:10px;
+        #menu{
+            @include gridle(5);
+            @include open-sans(300,14px,white,left);
+            text-align:left;    
+            a.normal{
+                cursor:pointer;
+                margin-left:5px;
+                &:hover,&:active{
+                    color: darken(white, 10%);
+                }
+            }
+        }
+        #call{
+            @include gridle(2);
+            @include gridle_push(5);
+            @include open-sans(300,14px,white,right);
+        }
+ 
+    }
+}
+ 
+//main
+ 
 .main{
     margin-top:50px;
- 
+    @include gridle_container(); 
     #profile-pic{
+        @include gridle(3);
         background-color: #b8b8b8;
         height:240px;
         padding: 100px 0;
         @include transition(0.25s);
+        cursor:pointer;
         p {
             @include open-sans(400, 13px, #4d4d4d, center);
             margin: auto;
@@ -121,17 +185,128 @@ header{
     }
  
     #profile-desc{
-        background-color:rgb(224,224,224);
+        @include gridle(9);
+        @include gridle_parent( );
+        background-color:rgb(230,230,230);
         height:240px;
-    }
-    .elements{
-        .grid-3:last-child{
-            border-right:1px rgb(224,224,224) solid;
+        @include transition(0.25s);
+        
+        .personal-data{
+            @include gridle(7);
+            .noHover{
+                border:1px rgb(230,230,230) solid !important;
+            }
+            .ng-binding{
+                text-indent: 10px;
+            }
+
+            h2{
+                cursor:pointer;
+                @include open-sans(300,40px,rgb(98,98,98),left);
+                padding-left:10px;
+                width:106%;
+                margin:{
+                    bottom: -10px;
+                    top:7px;
+                }
+                
+                span:first-child{
+                    border:1px rgb(230,230,230) solid;
+                    width:100%;
+                    display: block;
+                    &:hover{
+                        border:1px rgb(169,169,169) solid;    
+                    }
+                }
+                
+                input{
+                    @include open-sans(300,40px,rgb(98,98,98),left);
+                    line-height: 40px;
+                    width:106%;
+                    background: white url("/images/tick-large.png") no-repeat scroll 98% 45%
+                }
+                
+            }
+            
+
+            ul{
+                list-style-type:none;
+                -webkit-padding-start: 10px;
+                padding-left:10px;
+                margin-bottom:10px;
+                text-align:left;
+                cursor:pointer;
+                li{
+                    width:108%;
+                    height:22px;
+                    span{
+                        @include open-sans(700,14px,rgb(98,98,98),left);
+                        border:1px rgb(230,230,230) solid;
+                        display:block;
+                        &:hover{
+                            border:1px rgb(169,169,169) solid;
+                        }    
+                    }
+                    
+                }
+            }
         }
-        .grid-3{
+
+        .buttons-container{
+            @include gridle(5);
+            margin-top:27px;
+            .top-buttons{
+                @include gridle(12);
+                .button{
+                    float:right;
+                    font-weight: 400;
+                    &:last-child{
+                        margin-right:5px;
+                    }
+                }    
+            }
+            .bottom-buttons{
+                @include gridle(6);
+                top:110px;
+                @include gridle_push(5);
+                img{
+                    cursor:pointer;
+                }
+            }
+        }
+
+        
+        
+
+    }
+
+    .elements{
+        .column{
+            padding:0;
+            @include gridle(3);
             border-left:1px rgb(224,224,224) solid;
             border-bottom:1px rgb(224,224,224) solid;
             height:180px;
+            &:hover{
+                background-color:darken(white,5%);
+            }
+            .overlay{
+                z-index:9999;
+                left:-10px;
+                width: 110%;
+                background: rgba(0,0,0,0.8);
+                position: absolute;
+                bottom: 0;
+                height: 40%;
+                margin: 0;
+                padding: 0;
+                bottom: 0;
+                top: 60%;
+                p.small{
+                    @include open-sans(300, 11px, white, left);
+                    margin-left:20px;
+                }
+            }
             .container{
                 width:100%;
                 .grid-12{
@@ -141,10 +316,39 @@ header{
                     border-bottom:1px rgb(224,224,224) solid;
                 }
             }
-             
+            h2{
+                @include open-sans(700, 17px, rgb(60,60,60), center);
+                margin-bottom:0;
+            }
+            h1{
+                @include open-sans(700, 30px, rgb(60,60,60), center);
+                margin-top:0;
+                cursor:pointer;
+            }
+            p{
+                @include open-sans(400, 13px, #4d4d4d, center);
+                margin: auto;
+                position: relative;
+                top: 40px;
+                cursor:pointer;
+                
+            }
+            .grid-12{
+                p{
+                    top:10px;
+                }
+            }
+
         }
+        .column:last-child{
+            border-right:1px rgb(224,224,224) solid;
+            
+        }
+            
+             
+        
         &.first{
-            .grid-3{
+            .column{
                 border-top:1px rgb(224,224,224) solid;
             }
         }
@@ -159,7 +363,9 @@ header{
     .qa{
         background-color:rgb(224,224,224);
         margin-bottom:20px;
-         
+        .column{
+            @include gridle(12);
+        }
         .big{
             font-size:20px;
             color:black;
@@ -172,9 +378,16 @@ header{
  
     .skills{
         margin-top:10px;
+        .column{
+            @include gridle(3);
+        }
         .big{
             color:black;
-            font-weight:600;
+            font:{
+                size:22px;
+                weight:700;
+            }
+            
         }
          
         ul{
@@ -213,10 +426,11 @@ footer{
     background-color: #b8b8b8;
     bottom:0;
     width:100%;
-    height:350px;
-    .grid-12:first-child{
+    height:360px;
+    .row{
+        @include gridle(12);
         background-color:#000;
-        text-align:center;
+        text-align:right;
         height:104px;
         margin-bottom:25px;
         img{
@@ -246,6 +460,25 @@ footer{
         }
     }
     .container{
+        .column-left{
+            @include open-sans(400, 14px, black, left);
+            @include gridle(4);
+        }
+        .column-center{
+            @include open-sans(400, 14px, black, left);
+            @include gridle(3);
+            @include gridle_push(1);
+        }
+        .column-right{
+            @include open-sans(400, 14px, black, left);
+            @include gridle(2);
+            @include gridle_push(1);
+        }
+        .column-last{
+            @include open-sans(400, 14px, black, left);
+            @include gridle(2);
+            @include gridle_push(1);   
+        }
         height:206px;
         color:black;
         a,a:hover,a:active{
@@ -253,7 +486,7 @@ footer{
             @include open-sans(400, 14px, black, left);
         }
         .title{
-            @include open-sans(600, 14px, black, center);
+            @include open-sans(700, 14px, black, left);
             &.left{
                 text-align:left;
             }
@@ -261,7 +494,7 @@ footer{
                 font-weight:600;
             }
         }
-        p.normal{
+        .normal{
             @include open-sans(400, 14px, black, left);
         }
         
@@ -269,10 +502,24 @@ footer{
             -webkit-padding-start: 0px;
             padding-left:0px;
             list-style-type:none;
+            text-align: left;
             li{
                 margin-bottom:6px;
             }
         }
+        p.small{
+            color:black;
+            @include gridle(6);
+            text-align: left;
+            a{
+                @include open-sans(400, 10px, black, center);
+                text-decoration:none;
+            }
+            &:last-child{
+                text-align: right;
+            }
+        }
+
         
     }
 }

@@ -5,116 +5,167 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Toptal Profile</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,800" rel="subresource stylesheet" type='text/css'>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="toptalApp">
+  <body data-ng-app="toptalApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <header>
       <div class="container">
-        <div class="grid-4">
-          <img src="/images/logo.jpg" id="logo"/>
+        <div class="logo-container">
+          <img src="/images/logo.jpg" alt="Logo Toptal">
         </div>
-        <div class="push-3 grid-5">
+        <div class="buttons-container">
           <p class="small">Join toptal as   <span class="button">DEVELOPER</span> <span class="button">COMPANY</span> <span class="button-gray">LOGIN</span></p>
         </div>
       </div>
+
       <div class="container" id="sub">
-          <div class="grid-5" id="menu">
-              <span class="normal">what</span>
-              <span class="normal">why</span>
-              <span class="normal">how</span>
-              <span class="normal">clients</span>
-              <span class="normal">team</span>
-              <span class="normal">labs</span>
-              <span class="normal">faq</span>
-              <span class="normal">contact</span>
+          <div id="menu">
+              <a class="normal">what</a>
+              <a class="normal">why</a>
+              <a class="normal">how</a>
+              <a class="normal">clients</a>
+              <a class="normal">team</a>
+              <a class="normal">labs</a>
+              <a class="normal">faq</a>
+              <a class="normal">contact</a>
           </div>
-          <div class="push-5 grid-2">
+          <div id="call">
               Call us: 888.323.4422
           </div>
       </div>
     </header>
+ 
+
     <!-- Add your site or application content here -->
-    <div class="main">
+    <div class="main" data-ng-controller="MainCtrl">
         <div class="container">
-            <div class="grid-3" id="profile-pic">
+            <div id="profile-pic">
                 <p> Add <br /> profile image...</p> 
             </div>
-            <div class="grid-9" id="profile-desc">
-                <h2>Add name</h2>
-                <ul>
-                    <li><a href="#">Add location</a></li>
-                    <li><a href="#">Add languages</a></li>
-                    <li><a href="#">Add skills</a></li>
-                </ul>
+            
+            <div id="profile-desc">
+                <div class="personal-data">
+                    <h2><span data-tt-editable data-ng-model="userData.name" data-text="Add name" data-type="name"></span></h2>
+                    <ul>
+                        <li><span data-tt-editable data-ng-model="userData.address" data-text="Add location" data-type="address"></span></li>
+                        <li><span data-tt-editable data-ng-model="languages" data-text="Add languages" data-type="languages"></span></li>
+                    </ul>
+                    <ul>
+                        <li><span data-tt-editable data-ng-model="skills" data-text="Add skills " data-type="skills"></span></li>
+                    </ul>    
+                </div>
+                <div class="buttons-container">
+                    <div class="top-buttons">
+                        <div class="button button-disabled round">PUBLISH PROFILE</div>    
+                        <div class="button button-inverted round">SAVE PROFILE</div>    
+                    </div>
+                    <div class="bottom-buttons">
+                        <img src="/images/resume.jpg" alt="Upload Resume button">
+                    </div>
+                </div>
             </div>
         </div>
+        
         <div class="container elements">
-            <div class="grid-3"></div>
-            <div class="grid-3"></div>
-            <div class="grid-3"></div>
-            <div class="grid-3 parent">
+            <div class="column">
+                <h2>Portfolio</h2>
+                <p> Add content ...</p> 
+            </div>
+            <div class="column">
+                <h2>Experience</h2>
+                <p> Add content ...</p> 
+            </div>
+            <div class="column">
+                <h2>Sample code and algorithms</h2>
+                <p> Add content ...</p> 
+            </div>
+            <div class="column">
                 <div class="container">
-                    <div class="grid-12">Full time</div>
+                    <div class="grid-12">
+                        <h2>Availability</h2>
+                        <h1>Full-time</h1>
+                    </div>
                 </div>
                 <div class="container">
-                    <div class="grid-12">Preferred enviroment</div>
+                    <div class="grid-12">
+                        <h2>Preferred enviroment</h2>
+                        <p> Add content ...</p> 
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="container elements">
-            <div class="grid-3 quote"></div>
-            <div class="grid-3 quote"></div>
-            <div class="grid-3 quote"></div>
-            <div class="grid-3 quote"></div>
+            <div class="column quote">
+                <h2>The most amazing ...</h2>
+                <p> Add content ...</p> 
+            </div>
+            <div class="column quote">
+                <h2>In clients i look for ...</h2>
+                <p> Add content ...</p> 
+            </div>
+            <div class="column" id="map">
+                <h2>Location </h2>
+                <p> Add content ...</p> 
+                
+            </div>
+            <div class="column quote">
+                <h2>Note</h2>
+                <p> Add content ...</p> 
+            </div>
         </div>
         
         <div class="container title">
-            <div class="grid-12">
-                <p class="big">
-                    Let me introduce myself...
-                </p>    
-            </div>
+            <p class="big">
+                Let me introduce myself...
+            </p>    
             
         </div>
 
         <div class="container elements first">
-            <div class="grid-3 quote"></div>
-            <div class="grid-3 quote"></div>
-            <div class="grid-3 quote"></div>
-            <div class="grid-3 quote"></div>
+            <div class="column">
+                <p> Add content ...</p> 
+            </div>
+            <div class="column">
+                <p> Add content ...</p> 
+            </div>
+            <div class="column">
+                <p> Add content ...</p> 
+            </div>
+            <div class="column">
+                <p> Add content ...</p> 
+            </div>
         </div>
         <div class="container qa">
-            <div class="grid-12">
-                <p class="big">Important! Please also fill out Q&A form <span class="button-inverted big round"> Q&A FORM</span></p>
+            <div class="column">
+                <p class="big">Important! Please also fill out Q&amp;A form <span class="button big round"> Q&amp;A FORM</span></p>
             </div>
-            <div class="grid-12">
+            <div class="column">
                 <p class="small">5 of 25 questions answered</p>
             </div>
         </div>
 
         <div class="container skills">
-            <div class="grid-12">
-                <p class="big">Top skills on toptal</p>
-            </div>
+            <p class="big">Top skills on toptal</p>
         </div>
         <div class="container skills">
-            <div class="grid-3">
+            <div class="column">
                 <ul>
                     <li><span class="title">.</span> .Net Programmers</li>
                     <li>3ds Max Egineers</li>
@@ -135,7 +186,7 @@
                 </ul>
             </div>
 
-            <div class="grid-3">
+            <div class="column">
                 <ul>
                     <li>Copyright Attorneys</li>
                     <li>Creative Writer</li>
@@ -152,11 +203,11 @@
                     <li>Graphic Designer</li>
                     <li><span class="title">H</span> HTML Programmers</li>
                     <li>HTML5 Programmers</li>
-                    <li><span class="title">I</span>Illustrator Designers</li>
+                    <li><span class="title">I</span> Illustrator Designers</li>
                 </ul>
             </div>
 
-            <div class="grid-3">
+            <div class="column">
                 <ul>
                     <li>InDesign Designers</li>
                     <li>iPhone Programmers</li>
@@ -177,7 +228,7 @@
                 </ul>
             </div>
 
-            <div class="grid-3">
+            <div class="column">
                 <ul>
                     <li>Online Writers</li>
                     <li>Oracle Programmers</li>
@@ -187,7 +238,7 @@
                     <li>Photoshop Designers</li>
                     <li>PHP Programmers</li>
                     <li><span class="title">R</span> Ruby on Rails Programmers</li>
-                    <li><spant class="title">S</spant> Salesforce.com Programmers</li>
+                    <li><span class="title">S</span> Salesforce.com Programmers</li>
                     <li>SAP Programmers</li>
                     <li>SEM Consultants</li>
                     <li>SEO Consultants</li>
@@ -201,19 +252,19 @@
     </div>
 
     <footer>
-        <div class="grid-12">
-            <img src="/images/join.jpg">
+        <div class="row">
+            <img src="/images/join.jpg" alt="Join to Toptal">
             <div class="button-dev"></div>
             <div class="button-client"></div>
         </div>
         <div class="container">
-            <div class="grid-5">
+            <div class="column-left">
                 <span class="title">About toptal</span>
                 <p class="normal">
                     TopTal connects start-ups, businesses, and organizationsto a growing network of the best developers in the world. Our engineers are available full- or part-time and are able to seamlessly integrate into your team.
                 </p>
             </div>
-            <div class="grid-3">
+            <div class="column-center">
                 <span class="title">FAQ</span>
                 <ul>
                     <li><a href="#">How can i join toptal?</a></li>
@@ -223,7 +274,7 @@
                     <li><a href="#">Rokok ini nulla facilis?</a></li>
                 </ul>
             </div>
-            <div class="grid-2">
+            <div class="column-right">
                 <span class="title left"><a href="#">What</a></span>
                 <p class="title left"><a href="#">Why</a></p>
                 <p class="title left"><a href="#">How</a></p>
@@ -232,7 +283,7 @@
                 <p class="title left"><a href="#">Lab</a></p>
 
             </div>
-            <div class="grid-2">
+            <div class="column-last">
                 <span class="title">Contact</span>
                 <p class="normal"><a href="#">Join us</a></p>
                 <p class="normal"><a href="mailto:">Send us e-mail</a></p>
@@ -241,8 +292,20 @@
 
             </div>
         </div>
+        <div class="container">
+            <p class="small">
+                Copyright 2011 Toptal Development Inc.
+            </p>
+            
+            
+            <p class="small">
+                <a href="#">Privacy policy</a> <a href="#">Term of use</a>
+            </p>
+            
+        </div>
     </footer>
     
+
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -252,16 +315,17 @@
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-filters/dist/angular-filters.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
+    <script src="//maps.googleapis.com/maps/api/js?sensor=true"></script>
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/directives/inlineEdit.js"></script>
+
         <!-- endbuild -->
 </body>
 </html>
