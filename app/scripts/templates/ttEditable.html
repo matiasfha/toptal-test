@@ -1,4 +1,4 @@
-<span>
+<span class="noHover">
 <span data-ng-hide="editorEnabled" data-ng-click="enableEditor();">{{editModel | default:text}}</span>
-<input data-ng-show="editorEnabled" data-ng-model="editModel" data-ng-required data-ui-keypress="{13:'unEdit($event)'}" > <!-- data-ui-event="{'blur':'unEdit($event)'}">-->
+<input data-ng-show="editorEnabled" data-ng-model="editModel" data-ng-required data-ui-keypress="{13:'unEdit($event)'}" >
 </span>

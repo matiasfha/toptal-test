@@ -1,0 +1,10 @@
+<span class="tag-container noHover"> 
+	<div class="tags-list">
+		<a class="{{tag.type}}" ng-repeat="(idx,tag) in parentModel | orderBy:'type':true" ng-click="remove(idx)" >{{tag.value}}</a>
+	</div>
+	<span data-ng-hide="editorEnabled" data-ng-click="enableEditor();" style="width:30%" class="tag">{{text}}</span>
+	<input data-ng-show="editorEnabled" data-ng-model="editModel" data-ng-required data-ui-keypress="{13:'unEdit($event)'}">
+	<select class="tag-type" data-ng-show="editorEnabled" data-ng-change="unEdit($event)" data-ng-model="typeModel" data-ng-options="type.label for type in options" >
+		
+	</select>
+</span>

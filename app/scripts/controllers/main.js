@@ -32,7 +32,7 @@ app.controller('MainCtrl', function ($scope) {
 		if(divMap.children.length > 0){
 			divMap.children[0].remove();
 		}
-		var div = document.createElement('div')
+		var div = document.createElement('div');
 		div.className = 'overlay';
 		if($scope.userData.name!==undefined){
 			html = '<p class="small">'+$scope.userData.name+' lives in '+$scope.userData.address+'</p>';
@@ -43,7 +43,10 @@ app.controller('MainCtrl', function ($scope) {
 		divMap.appendChild(div);
 	};
 
-	$scope.userData = {};
+	$scope.userData = {
+		'skills':[]
+	};
+
 	
 	$scope.$watch('userData.location',function(){
 		if($scope.userData.location !== undefined){

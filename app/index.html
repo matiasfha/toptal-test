@@ -56,7 +56,7 @@
     <div class="main" data-ng-controller="MainCtrl">
         <div class="container">
             <div id="profile-pic">
-                <p> Add <br /> profile image...</p> 
+                <span data-tt-upload-image data-ng-model="userData.profile" data-text="Add <br />profile image..."></span>
             </div>
             
             <div id="profile-desc">
@@ -64,10 +64,10 @@
                     <h2><span data-tt-editable data-ng-model="userData.name" data-text="Add name" data-type="name"></span></h2>
                     <ul>
                         <li><span data-tt-editable data-ng-model="userData.address" data-text="Add location" data-type="address"></span></li>
-                        <li><span data-tt-editable data-ng-model="languages" data-text="Add languages" data-type="languages"></span></li>
+                        <li><span data-tt-editable data-ng-model="userData.languages" data-text="Add languages" data-type="languages"></span></li>
                     </ul>
                     <ul>
-                        <li><span data-tt-editable data-ng-model="skills" data-text="Add skills " data-type="skills"></span></li>
+                        <li><span data-tt-editable-tags data-ng-model="userData.skills" data-text="Add skills" ></span></li>
                     </ul>    
                 </div>
                 <div class="buttons-container">
@@ -83,7 +83,7 @@
         </div>
         
         <div class="container elements">
-            <div class="column">
+            <div data-tt-portfolio-widget data-ng-model="userData.portfolio">
                 <h2>Portfolio</h2>
                 <p> Add content ...</p> 
             </div>
@@ -325,7 +325,9 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/directives/inlineEdit.js"></script>
-
+        <script src="scripts/directives/inlineEditTags.js"></script>
+        <script src="scripts/directives/uploadImage.js"></script>
+        <script src="scripts/directives/portfolioWidget.js"></script>
         <!-- endbuild -->
 </body>
 </html>

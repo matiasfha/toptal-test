@@ -1,0 +1,11 @@
+<span class="noHover">
+	<div data-ng-click="enableEditor();" class="picture-container">
+		
+	</div>
+	<div class="uploader-container">
+		<p data-ng-click="enableEditor();" data-ng-hide="editorEnabled">{{text}}</p>
+		<input type="file" style="visibility:hidden" data-ng-file-select="onFileSelect($files)"/>
+		<input type="text" data-ng-model="editModel" data-ng-show="editorEnabled" data-ng-click="selectFile($event)" >
+		<button data-ng-show="editorEnabled" data-ng-click="selectFile($event);">Browse image</button>
+	</div>
+</span>
