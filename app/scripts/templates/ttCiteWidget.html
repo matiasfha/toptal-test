@@ -1,0 +1,18 @@
+<span>
+	<div class="column quote" data-ng-click="enableEditor();" data-ng-hide="widgetEnabled">
+				<h2>The most amazing ...</h2>
+                <p data-ng-hide="widgetEnded"> Add content ...</p> 
+                <div data-ng-show="widgetEnded">
+                	<p>{{editModel.amazing}}</p>
+                	<p class="firm" data-ng-show="editModel.name">--{{editModel.name}}</p>
+                </div>
+	</div>
+
+	<div class="column widget cite" data-ng-show="widgetEnabled">
+		<h2>The most amazing ...</h2>
+		<br />
+		<textarea rows="7" cols="28" placeholder="Tell us about the best software you have work on..." data-ng-model="editModel.amazing"></textarea>
+		<p class="firm" data-ng-show="editModel.name">--{{editModel.name}}</p>
+		<img src="/images/tick-large.png" data-ng-click="disableEditor();"/>
+	</div>
+</span>
