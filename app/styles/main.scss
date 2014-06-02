@@ -111,6 +111,7 @@ input{
     img{
         float: left;
         margin-top: 10px;
+        cursor:pointer;
     }
     span.skills{
         @include open-sans(300,10px,#626262,left);
@@ -124,7 +125,38 @@ input{
     }
 }
 
+.cite{
+    img{
+        float: left;
+        margin-top: 10px;
+        cursor:pointer;
+    }
+    .firm{
+        top:7px !important;
+        color:white;
+    }
+}
+
+.quote, .cite{
+    .firm{
+        float: right;
+        font-size: 10px;
+        font-weight: bold;
+    }
+}
  
+
+.quote{
+    // height: 200px;
+    // width: 500px;
+    // margin: 10px auto;
+    // text-align: center;
+    // padding: 10px;
+    // border: 1px solid #333;
+    background:
+    url('/images/comillas1.png') no-repeat left top,
+    url('/images/comillas2.png') no-repeat right bottom;
+} 
 .container{
     width:960px;
     margin:0 auto;
