@@ -1,33 +1,24 @@
 <span>
 	<div class="column" data-ng-click="enableEditor();" data-ng-hide="widgetEnabled">
 		<h2>Portfolio</h2>
-	    <p> Add content ...</p> 
+	    <p data-ng-hide="portfolioEnded"> Add content ...</p> 
+	    <span class="skills" data-ng-show="portfolioEnded">
+	    	{{skills}}
+	    </span>
+	    <ul data-ng-show="portfolioEnded" class="portfolio">
+			<li data-ng-repeat="obj in projects" data-ng-show="projects[$index].name"><strong>{{projects[$index].name}}</strong>, {{projects[$index].skills}}</li>
+		</ul>
 	</div>
-	<div  class="column widget" data-ng-show="widgetEnabled">
+	
+	<div  class="column widget portfolio" data-ng-show="widgetEnabled">
 		<h2>Portfolio</h2>
 		<table>
-		<tr>
-		<td><input type="text"></td><td><input type="text"></td>
-		</tr>
-		<tr>
-		<td><input type="text"></td><td><input type="text"></td>
-		</tr>
-		<tr>
-		<td><input type="text"></td><td><input type="text"></td>
-		</tr>
-		<tr>
-		<td><input type="text"></td><td><input type="text"></td>
-		</tr>
-		<tr>
-		<td><input type="text"></td><td><input type="text"></td>
-		</tr>
-		<tr>
-		<td><input type="text"></td><td><input type="text"></td>
-		</tr>
-		<tr>
-		<td><input type="text"></td><td><input type="text"></td>
+		<tr data-ng-repeat="obj in projects">
+			<td>
+				<input type="text" placeholder="Project Name" data-ng-model="projects[$index].name"></td>
+				<td><input type="text" placeholder="Skills used" data-ng-model="projects[$index].skills"></td>
 		</tr>
 		</table>
-		<img src="/images/tick-large.png" />
+		<img src="/images/tick-large.png" data-ng-click="disableEditor();"/>
 	</div>
 </span>

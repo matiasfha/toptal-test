@@ -85,6 +85,7 @@ body{
     @include open-sans(300, 25px, white, center);
 }
 
+
 input{
     box-sizing: border-box;
     border:1px rgb(172,172,172) solid;
@@ -102,6 +103,27 @@ input{
         border:1px rgb(172,172,172) solid;
     }
 }
+
+.portfolio{
+    input{
+        background-image:none;
+    }
+    img{
+        float: left;
+        margin-top: 10px;
+    }
+    span.skills{
+        @include open-sans(300,10px,#626262,left);
+        font-style: italic;
+    }
+    ul{
+        @include open-sans(300,10px,#626262,left);
+    }
+    li{
+        text-align: left;
+    }
+}
+
  
 .container{
     width:960px;
