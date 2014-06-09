@@ -376,6 +376,20 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
+    },
+    buildcontrol:{
+      options:{
+        dir:'dist',
+        commit:true,
+        push:true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      heroku:{
+        options:{
+          remote: 'git@heroku.com:ttprofile.git',
+          branch: 'master'
+        }
+      }
     }
   });
 
@@ -422,7 +436,8 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'buildcontrol'
   ]);
 
   grunt.registerTask('default', [
