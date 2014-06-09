@@ -378,19 +378,17 @@ module.exports = function (grunt) {
       }
     },
     buildcontrol:{
-      options:{
-        dir:'dist',
-        commit:true,
-        push:true,
-        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-      },
-      heroku:{
-        options:{
-          remote: 'git@heroku.com:ttprofile.git',
-          branch: 'master'
+            dist:{
+                options:{
+                    dir:'dist',
+                    commit:true,
+                    push:true,
+                    message:'Build TTProfile from %sourceCommit%',
+                    remote:'git@heroku.com:ttprofile.git',
+                    branch:'master'
+                }
+            }
         }
-      }
-    }
   });
 
 
@@ -436,8 +434,7 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin',
-    'htmlmin',
-    'buildcontrol'
+    'htmlmin'
   ]);
 
   grunt.registerTask('default', [
@@ -445,4 +442,9 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerTask('deploy',[
+        'build',
+        'buildcontrol:dist'
+    ]);
 };
